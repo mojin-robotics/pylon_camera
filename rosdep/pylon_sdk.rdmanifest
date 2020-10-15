@@ -36,10 +36,10 @@ install-script: |
 check-presence-script: |
   #!/bin/bash
   if [ "${PYLON_ROOT}" = "" ]; then
-    find /opt -type f -name pylon-config
+    find /opt/pylon -type f -name pylon-config
     FOUND=$?
     if [ "$FOUND" -eq 0 ]; then
-      for pylon_install in `find /opt -type f -name pylon-config`; do
+      for pylon_install in `find /opt/pylon -type f -name pylon-config`; do
         MAJOR=`${pylon_install} --version-major`
         if [ "$MAJOR" = "5" ]; then
           echo "Found a pylon Installation with version 5 or greater"
